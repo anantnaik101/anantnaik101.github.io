@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anant Naik | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root {
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --blue-soft: #dbeafe;
+
+    --white: #ffffff;
+    --background: #f7faff;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #dbe4f0;
+
+    --shadow: 0 15px 45px rgba(37, 99, 235, 0.08);
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+header.scrolled {
+    border-bottom-color: var(--border);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+}
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.nav-menu a:hover {
+    color: var(--blue);
+}
+
+.nav-button {
+    background: var(--blue);
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 9px;
+}
+
+.nav-button:hover {
+    background: #1d4ed8;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 0 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #dbeafe;
+    filter: blur(90px);
+    opacity: 0.65;
+    top: -200px;
+    right: -150px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #e0f2fe;
+    filter: blur(100px);
+    bottom: -150px;
+    left: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.intro {
+    color: var(--blue);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero-description {
+    max-width: 570px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: 0.25s;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37,99,235,0.22);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    background: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-3px);
+}
+
+/* ================= PROFILE BOX ================= */
+
+.profile-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.profile-circle {
+    width: 125px;
+    height: 125px;
+    margin: auto;
+    border-radius: 50%;
+    background: var(--blue-light);
+    border: 5px solid var(--blue-soft);
+    overflow: hidden;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-box h3 {
+    margin-top: 20px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+}
+
+.username {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.profile-stat strong {
+    display: block;
+    font-size: 1.3rem;
+}
+
+.profile-stat small {
+    color: var(--muted);
+    font-size: 0.72rem;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #172033;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading span {
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-top: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 600px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    background: white;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.about-text strong {
+    color: var(--text);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.skill {
+    padding: 9px 15px;
+    border-radius: 8px;
+    background: var(--blue-light);
+    color: #1d4ed8;
+    border: 1px solid var(--blue-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info-card {
+    padding: 25px;
+    border-radius: 16px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    transition: 0.25s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: #93c5fd;
+}
+
+.info-card i {
+    color: var(--blue);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.info-card h4 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 5px;
+}
+
+.info-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    background: var(--background);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+    border-color: #93c5fd;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.project-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.stars {
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.project-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 0.87rem;
+    flex-grow: 1;
+}
+
+.project-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.language {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.view-project {
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+    background: white;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 650px;
+    margin: auto;
+}
+
+.contact-content p {
+    color: var(--muted);
+    margin-top: 15px;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #172033;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.85rem;
+}
+
+footer span {
+    color: #60a5fa;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 850px) {
+
+    .hero-content,
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .profile-box {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-menu a:not(.nav-button) {
+        display: none;
+    }
+}
+
+@media(max-width: 550px) {
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .project-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header id="header">
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            Anant<span>.</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact" class="nav-button">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div>
+
+            <div class="intro">
+                Computer Engineering Student
+            </div>
+
+            <h1>
+                Hi, I'm <span>Anant</span>.<br>
+                I build things with code.
+            </h1>
+
+            <p class="hero-description">
+                I'm a Computer Engineering student interested in programming,
+                artificial intelligence and web development. I enjoy learning
+                new technologies and turning ideas into practical projects.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fa-solid fa-code"></i>
+                    Explore Projects
+                </a>
+
+                <a href="www.linkedin.com/in/anant-naik-92463b416"
+                   target="_blank"
+                   class="btn btn-outline">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <div class="profile-circle">
+                <img id="githubAvatar"
+                     src=""
+                     alt="GitHub profile picture">
+            </div>
+
+            <h3 id="githubName">Anant Naik</h3>
+
+            <div class="username" id="githubUsername">
+                @anantnaik101
+            </div>
+
+            <div class="profile-stats">
+
+                <div class="profile-stat">
+                    <strong id="repoCount">--</strong>
+                    <small>Repositories</small>
+                </div>
+
+                <div class="profile-stat">
+                    <strong id="followers">--</strong>
+                    <small>Followers</small>
+                </div>
+
+                <div class="profile-stat">
+                    <strong id="following">--</strong>
+                    <small>Following</small>
+                </div>
+
+            </div>
+
+            <a href="https://github.com/anantnaik101"
+               target="_blank"
+               class="github-btn">
+
+                <i class="fa-brands fa-github"></i>
+                GitHub Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>About Me</span>
+
+            <h2>Who I am</h2>
+
+            <p>
+                A student exploring technology and building my skills
+                through practical projects.
+            </p>
+
+        </div>
+
+
+        <div class="about-layout">
+
+            <div class="about-text">
+
+                <p>
+                    I am a <strong>Computer Engineering student</strong>
+                    with an interest in software development, artificial
+                    intelligence and modern web technologies.
+                </p>
+
+                <p>
+                    I like experimenting with different technologies,
+                    solving programming problems and creating projects
+                    that help me understand concepts through practice.
+                </p>
+
+                <p>
+                    My current focus is improving my programming fundamentals
+                    while exploring <strong>AI and web development</strong>.
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill">C++</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">AI</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <h4>Education</h4>
+
+                    <p>
+                        Computer Engineering
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <h4>Development</h4>
+
+                    <p>
+                        Web & Software Projects
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h4>Interests</h4>
+
+                    <p>
+                        Artificial Intelligence
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <h4>Approach</h4>
+
+                    <p>
+                        Learn by Building
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>My Work</span>
+
+            <h2>GitHub Projects</h2>
+
+            <p>
+                Some of my latest public repositories fetched directly
+                from GitHub.
+            </p>
+
+        </div>
+
+
+        <div class="project-grid" id="projectGrid">
+
+            <div class="project-card">
+                Loading projects...
+            </div>
+
+            <div class="project-card">
+                Please wait.
+            </div>
+
+            <div class="project-card">
+                Fetching GitHub data.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container contact-content">
+
+        <div class="section-heading">
+
+            <span>Get In Touch</span>
+
+            <h2>Let's connect.</h2>
+
+        </div>
+
+        <p>
+            Interested in collaborating, discussing projects or simply
+            connecting? You can find me on GitHub and LinkedIn.
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <a href="https://github.com/anantnaik101"
+               target="_blank"
+               class="btn btn-primary">
+
+                <i class="fa-brands fa-github"></i>
+                GitHub
+
+            </a>
+
+
+            <a href="www.linkedin.com/in/anant-naik-92463b416"
+               target="_blank"
+               class="btn btn-outline">
+
+                <i class="fa-brands fa-linkedin"></i>
+                LinkedIn
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        Designed & built by
+        <span>Anant Naik</span>
+        · © <span id="year"></span>
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ================= SETTINGS ================= */
+
+const GITHUB_USERNAME = "anantnaik101";
+
+const LINKEDIN_URL = "www.linkedin.com/in/anant-naik-92463b416";
+
+
+/* ================= NAVBAR ================= */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* ================= GITHUB ================= */
+
+async function loadGitHub() {
+
+    const userURL =
+        `https://api.github.com/users/${GITHUB_USERNAME}`;
+
+    const reposURL =
+        `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`;
+
+
+    try {
+
+        const [userResponse, reposResponse] =
+            await Promise.all([
+                fetch(userURL),
+                fetch(reposURL)
+            ]);
+
+
+        if (!userResponse.ok || !reposResponse.ok) {
+            throw new Error("GitHub request failed");
+        }
+
+
+        const user = await userResponse.json();
+
+        const repos = await reposResponse.json();
+
+
+        /* PROFILE */
+
+        document.getElementById("githubAvatar").src =
+            user.avatar_url;
+
+        document.getElementById("githubName").textContent =
+            user.name || "Anant Naik";
+
+        document.getElementById("githubUsername").textContent =
+            "@" + user.login;
+
+        document.getElementById("repoCount").textContent =
+            user.public_repos;
+
+        document.getElementById("followers").textContent =
+            user.followers;
+
+        document.getElementById("following").textContent =
+            user.following;
+
+
+        /* PROJECTS */
+
+        const projectGrid =
+            document.getElementById("projectGrid");
+
+
+        const projects = repos
+            .filter(repo => !repo.fork)
+            .slice(0, 6);
+
+
+        if (projects.length === 0) {
+
+            projectGrid.innerHTML = `
+                <div class="project-card">
+                    <h3>No public projects yet</h3>
+                    <p>
+                        Add some public repositories to your
+                        GitHub account and they will appear here.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        projectGrid.innerHTML = projects.map(repo => {
+
+            const description =
+                repo.description ||
+                "A project created while learning and exploring technology.";
+
+
+            const language =
+                repo.language || "Code";
+
+
+            return `
+
+                <article class="project-card">
+
+                    <div class="project-top">
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            ${repo.stargazers_count || 0}
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        ${escapeHTML(repo.name)}
+                    </h3>
+
+
+                    <p>
+                        ${escapeHTML(description)}
+                    </p>
+
+
+                    <div class="project-bottom">
+
+                        <span class="language">
+                            ${escapeHTML(language)}
+                        </span>
+
+                        <a
+                            href="${repo.html_url}"
+                            target="_blank"
+                            class="view-project">
+
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("projectGrid").innerHTML = `
+
+            <div class="project-card">
+
+                <h3>
+                    GitHub data unavailable
+                </h3>
+
+                <p>
+                    Please visit my GitHub profile to see my projects.
+                </p>
+
+                <a
+                    href="https://github.com/${GITHUB_USERNAME}"
+                    target="_blank"
+                    class="view-project">
+
+                    Open GitHub
+
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ================= SECURITY ================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ================= FOOTER YEAR ================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ================= START ================= */
+
+window.addEventListener("load", loadGitHub);
+
+</script>
+
+</body>
+</html>
